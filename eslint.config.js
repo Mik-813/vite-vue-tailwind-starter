@@ -7,14 +7,21 @@ import { defineConfig } from 'eslint/config'
 import importPlugin from 'eslint-plugin-import'
 import globals from 'globals'
 import vueParser from 'vue-eslint-parser'
-import customPlugin from './eslint-custom/eslint.custom.js'
+import customPlugin from './eslint/eslint.custom.js'
 
 const eslintrc = new FlatCompat()
 
 export default defineConfig([
-  { ignores: ['public/**/*.*', 'node_modules/**/*.*', 'three.js/**/*.*', 'vite.config.ts'] },
+  {
+    ignores: [
+      'public/**/*.*',
+      'node_modules/**/*.*',
+      'three.js/**/*.*',
+      'vite.config.ts',
+      'dist/**/*.*',
+    ], 
+  },
 
-  ...eslintrc.extends('plugin:tailwindcss/recommended'),
   ...eslintrc.extends('plugin:vue/recommended'),
 
   {
@@ -25,7 +32,7 @@ export default defineConfig([
         parser: tsParser,
         globals: globals.browser,
         extraFileExtensions: ['.vue'],
-        project: ['tsconfig.eslint.json', 'tsconfig.json'],
+        project: ['eslint/tsconfig.eslint.json'],
       },
     },
     ...js.configs.recommended,
