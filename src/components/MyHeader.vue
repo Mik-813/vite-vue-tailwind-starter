@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const sentence = "Hello Vite + Vue.js + tailwindUI static SPA"
+const props = defineProps<{ example: StringOrNumber, }>()
+const a: StringOrNumber = { value: 1 } 
+const foo = import.meta.env.BASE_URL
 </script>
 
 <template>
-  <h1 class="bg-blue-500">{{ sentence }}</h1>
+  <h1 class="bg-blue-500">
+    {{ example.value }}
+  </h1>
 </template>

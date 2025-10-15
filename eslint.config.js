@@ -114,7 +114,7 @@ export default defineConfig([
           },
         },
       ],
-
+      
       'import/first': 'error',
       'import/no-duplicates': 'error',
       'import/newline-after-import': ['warn', { count: 1 }],
